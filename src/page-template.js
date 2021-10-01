@@ -1,5 +1,10 @@
-const generatePage = (name, github) => {
-  return `
+module.exports = templateData => {
+  console.log(projects, about, header);
+
+// this will create 3 variables based on templateData
+  const {projects, about, ...header} = templateData;
+
+  return `  
   <!DOCTYPE html> 
   <html lang="en"> 
   <head>
@@ -10,11 +15,11 @@ const generatePage = (name, github) => {
   </head>
 
   <body>
-    <h1>${name}</h1>
-    <h2><a href="https://github.com/${github}">Github</a></h2>
+     <h1>${templateData.name}</h1>
+    <h2><a href="https://github.com/${templateData.github}">Github</a></h2>
   </body>
   </html>
   `;
 };
-
-module.exports = generatePage;
+// possibly add ${name} to h1 later and ${github} to h2
+// module.exports = generatePage;
